@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercice 11</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <label for="nom">Votre nom : </label>
+    <input type="text" name="nom" id="nom" />
+    <label for="prenom">Votre prenom : </label>
+    <input type="text" name="prenom" id="prenom" />
+    <label for="date">votre date de naissance </label>
+    <input type="text" name="date" id="date" placeholder="jj-mm-aaaa" />
+    <button id="voirJour">voir mon jour de naissance</button>
+    <div></div>
+  </body>
+  <script>
+    /* ici on ajoute une fonction lorsqu'on clique sur le boutton html qui va permettred'afficher les données saisi */
+    document.querySelector("#voirJour").addEventListener("click", () => {
+      /* on attribut les valeurs des inputs  */
+      typedate = RegExp(
+        /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/
+      );
+      if (typedate.test(document.querySelector("#date").value)) {
+        let prenom = document.querySelector("#prenom").value;
+        let nom = document.querySelector("#nom").value;
+        let date = new Date(document.querySelector("#date").value);
+        /* pour modifier l'affichage de la date on creer un  objet options  */
+        let options = {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        };
+        /* on affiche les données dans la page  */
+        let jour = new Intl.DateTimeFormat("fr-FR", options).format(date);
+        document.querySelector("div").innerText =
+          prenom + " " + nom + " est né un " + jour;
+      } else throw "saisir une date valide format pris en charge : jj/mm/aaaa ";
+    });
+  </script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercice 9</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body
+    style="
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    "
+  >
+    <h1 style="text-align: center">Table de multiplication</h1>
+    <table>
+      <thead>
+        <tr id="tete"></tr>
+      </thead>
+      <tbody>
+        <tr id="table"></tr>
+      </tbody>
+    </table>
+  </body>
+  <script>
+    let x = parseInt(prompt("saisir une valeur entière entre 2 et 9"));
+    /* fonction permettant d'afficher la table de multiplication de 0 a 10 d'un nombre entre 2 et 9 choisi par l'utilisateur affiché dans la table html ci dessus    */
+    function calc(x) {
+      if (2 <= x && 9 >= x) {
+        for (let i = 0; i < 11; i++) {
+          document.querySelector("#tete").innerHTML +=
+            "<th>" + x + "x" + i + "=" + "</th>";
+          document.querySelector("#table").innerHTML +=
+            "<td>" + x * i + "</td>";
+        }
+      } else throw "choissez un nombre entre ";
+    }
+    calc(x);
+  </script>
+</html>

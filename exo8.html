@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercice 8</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <table id="table" style="border: solid black 1px"></table>
+  </body>
+  <script>
+    /* variable demandés a l'utilisateur convertis en numerique */
+    let N1 = parseInt(window.prompt("saisir nombre 1", 1));
+    let N2 = parseInt(window.prompt("saisir nombre 2", 2));
+    console.log(N2);
+    /* boucle permettant d'afficher les bombre pair et impair dans la table  */
+    for (let index = N1; index <= N2; index++) {
+      if (index % 2 == 0) {
+        document.querySelector("#table").innerHTML +=
+          "<td>" + index + " ce nombre est pair</td>";
+      } else {
+        document.querySelector("#table").innerHTML +=
+          "<td>" + index + " ce nombre est impair</td>";
+      }
+    }
+  </script>
+</html>

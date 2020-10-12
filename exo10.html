@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercice 10</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <h1>
+      Ouvrez la console pour voir quel est l'argument le plus grand de la
+      fonction maxi(qui contient ici 1,3,54,4);)
+    </h1>
+  </body>
+  <script>
+    /* fonction permettant de throw quelque chose ;utile pour les conditions ternaires  */
+    function _throw(m) {
+      throw m;
+    }
+    /* fonction renvoyant le plus grand nombre passé en argument   */
+    function maxi() {
+      /* premiere execption qui permet de renvoyer une erreur si aucun argument n'est passé  */
+      arguments.length == 0 ? -_throw("aucun argument passé") : 1 == 1;
+      /* pour pouvoir parcourir les valeurs passé en argument il nous faut les placer dans un tableau car l'objet argument ne contient pas uniquement les valeur passé en arguments de la fonction */
+      let tab = new Array();
+      /* boucle remplissant le tableau avec les les elements passé en argument de la fonction */
+      for (let i = 1; i <= arguments.length; i++) {
+        tab[i] = arguments[arguments.length - i];
+      }
+      /* on peut finalement parcourir notre tableau et lancer une erreur si l'un des argument n'est pas un nombre  */
+      tab.forEach((x) =>
+        isNaN(x) ? _throw("un argument choisi n'est pas un nombre") : 1 == 1
+      );
+      /* on retourne la plus grande valeur grace a la methode max de l'objet Maths sur l'objet argument car la methode max va s'appliquer uniquement sur les elements numeriques  */
+      return console.log(Math.max(...arguments));
+    }
+    /* on appelle la fonction avec en arguments 1 3 54 4 */
+    maxi(1, 3, 54, 4);
+  </script>
+</html>
